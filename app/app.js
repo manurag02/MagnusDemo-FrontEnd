@@ -19,64 +19,121 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     .state("admin", {
       url: "/admin",
       // loaded into ui-view of parent's template
-      templateUrl: "admin/admin.html",
-      controller: "View1Ctrl",
-      onEnter: function() {
-        console.log("enter admin page");
+      views: {
+        main: {
+          templateUrl: "admin/admin.html",
+          controller: "View1Ctrl",
+          onEnter: function() {
+            console.log("enter admin page");
+          }
+        }
       }
     })
     .state("admin.mdata", {
       url: "/masterData",
       // loaded into ui-view of parent's template
-      templateUrl: "admin/master-data.html",
-      controller: "View1Ctrl",
-      onEnter: function() {
-        console.log("enter admin master data page");
+      views: {
+        content: {
+          templateUrl: "admin/master-data.html",
+          controller: "View1Ctrl",
+          onEnter: function() {
+            console.log("enter admin master data page");
+          }
+        }
       }
     })
     .state("admin.usrReg", {
       url: "/user-registration",
       // loaded into ui-view of parent's template
-      templateUrl: "admin/user-registration.html",
-      controller: "View1Ctrl",
-      onEnter: function() {
-        console.log("enter admin user registration page");
+      views: {
+        content: {
+          templateUrl: "admin/user-registration.html",
+          controller: "View1Ctrl",
+          onEnter: function() {
+            console.log("enter admin user registration page");
+          }
+        }
+      }
+    })
+    .state("admin.reports", {
+      url: "/reports",
+      // loaded into ui-view of parent's template
+      views: {
+        content: {
+          templateUrl: "admin/admin-reports.html",
+          controller: "View1Ctrl",
+          onEnter: function() {
+            console.log("enter admin reports page");
+          }
+        }
+      }
+    })
+    .state("admin.reports.test", {
+      url: "/edit-user-reg",
+      views: {
+        // wrong
+        content: {
+          // correct
+          edituser: {
+            templateUrl: "admin/user-registration.html",
+            controller: "View1Ctrl",
+            onEnter: function() {
+              console.log("enter reports edit user reg page");
+            }
+          }
+        }
       }
     })
     .state("sourcing", {
       url: "/sourcing",
       // loaded into ui-view of parent's template
-      templateUrl: "sourcing/sourcing.html",
-      controller: "View2Ctrl",
-      onEnter: function() {
-        console.log("enter sourcing page");
+      views: {
+        main: {
+          templateUrl: "sourcing/sourcing.html",
+          controller: "View2Ctrl",
+          onEnter: function() {
+            console.log("enter sourcing page");
+          }
+        }
       }
     })
     .state("sourcing.quotation", {
       url: "/quotation",
       // loaded into ui-view of parent's template
-      templateUrl: "sourcing/sourcing-quotation.html",
-      controller: "View2Ctrl",
-      onEnter: function() {
-        console.log("enter sourcing quotation page");
+      views: {
+        content: {
+          templateUrl: "sourcing/sourcing-quotation.html",
+          controller: "View2Ctrl",
+          onEnter: function() {
+            console.log("enter sourcing quotation page");
+          }
+        }
       }
     })
     .state("sourcing.vendor", {
       url: "/vendor",
       // loaded into ui-view of parent's template
-      templateUrl: "sourcing/sourcing-vendor.html",
-      controller: "View2Ctrl",
-      onEnter: function() {
-        console.log("enter sourcing vendor page");
+      views: {
+        content: {
+          templateUrl: "sourcing/sourcing-vendor.html",
+          controller: "View2Ctrl",
+          onEnter: function() {
+            console.log("enter sourcing vendor page");
+          }
+        }
       }
     })
     .state("sourcing.prr", {
       url: "/prr",
       // loaded into ui-view of parent's template
-      templateUrl: "sourcing/prr.html",
-      controller: "View2Ctrl",
-      onEnter: function() {
-        console.log("enter sourcing prr page");
+      views: {
+        content: {
+          templateUrl: "sourcing/prr.html",
+          controller: "View2Ctrl",
+          onEnter: function() {
+            console.log("enter sourcing prr page");
+          }
+        }
       }
     });
 });

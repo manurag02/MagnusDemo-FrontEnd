@@ -110,7 +110,7 @@
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#">
+              <a class="nav-link" ui-sref=".reports" ng-click="getAll()">
                 Reports
               </a>
             </li>
@@ -118,7 +118,7 @@
         </div>
       </div>
     </nav>
-    <ui-view></ui-view>
+    <div ui-view="content"></div>
   </div>
   <!-- <footer class="footer">
       <div class="container-fluid">
