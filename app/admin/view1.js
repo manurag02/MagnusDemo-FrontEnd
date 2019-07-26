@@ -3,9 +3,9 @@
 angular
   .module("myApp.view1", ["ngRoute"])
 
-  .config(["$routeProvider", function($scope) {}])
+  .config(["$routeProvider", function() {}])
 
-  .controller("View1Ctrl", function($scope, PDServe) {
+  .controller("View1Ctrl", function($scope, PDServe, $state, $rootScope) {
     // console.log(PDServe.GetAll());
 
     $scope.submitForm = function() {
@@ -21,7 +21,7 @@ angular
       };
 
       if ($scope.myForm.$valid) {
-        console.log("input data" + $scope.user);
+        console.log($scope.myForm);
         console.log(PDServe.Insert($scope.user));
       }
     };
@@ -39,6 +39,26 @@ angular
       $scope.udata.splice(row, 1);
       PDServe.Remove(id1).then(response => {
         console.log(response);
+      });
+    };
+
+    $scope.update = function(uid) {
+      $rootScope.sdata = {};
+      PDServe.GetSingle(uid).then(response => {
+        $rootScope.sdata = response;
+        console.log($rootScope.sdata);
+        $rootScope.eformData = $rootScope.sdata;
+      });
+      $state.go("test");
+      console.log($rootScope.eformData);
+    };
+  })
+
+  .controller("editCtrl", function($rootScope, PDServe, $scope) {
+    $scope.editForm = function() {
+      PDServe.Update($rootScope.eformData).then(response => {
+        $scope.udata = response;
+        console.log($scope.udata);
       });
     };
   })
@@ -81,12 +101,11 @@ angular
     thisPDService.GetSingle = function(id) {
       var promise = $http({
         method: "GET",
-        url: "http://localhost:" + port + "/api/v1/user/all" + id
+        url: "http://localhost:3000/api/v1/user/view/" + id
       }).then(function(response) {
-        $scope.udata = response.data;
-        return $scope.udata;
+        return response.data;
       });
-      return $scope.udata;
+      return promise;
     };
 
     // post the data from database
@@ -105,18 +124,13 @@ angular
     };
 
     // put the data from database
-    thisPDService.Update = function(autoId, firstName, lastName, age, active) {
-      var personalDetail = {
-        AutoId: autoId,
-        FirstName: firstName,
-        LastName: lastName,
-        Age: age,
-        Active: active
-      };
+    thisPDService.Update = function(eformData) {
+      let personalDetail = eformData;
+      let uid = eformData.uid;
 
       var promise = $http({
         method: "PUT",
-        url: "/api/PersonalDetails/" + autoId,
+        url: "http://localhost:3000/api/v1/user/" + uid + "/edit",
         data: personalDetail
       }).then(
         function(response) {

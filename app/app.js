@@ -56,6 +56,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
     .state("admin.reports", {
+      parent: "admin",
       url: "/reports",
       // loaded into ui-view of parent's template
       views: {
@@ -68,18 +69,16 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state("admin.reports.test", {
-      url: "/edit-user-reg",
+    .state("test", {
+      parent: "admin",
+      url: "/admin/reports/edit-user-reg",
+      // correct
       views: {
-        // wrong
-        content: {
-          // correct
-          edituser: {
-            templateUrl: "admin/user-registration.html",
-            controller: "View1Ctrl",
-            onEnter: function() {
-              console.log("enter reports edit user reg page");
-            }
+        edituser: {
+          templateUrl: "admin/user-data.html",
+          controller: "editCtrl",
+          onEnter: function() {
+            console.log("enter reports edit user reg page");
           }
         }
       }
