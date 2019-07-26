@@ -55,7 +55,7 @@ angular
   })
 
   .controller("editCtrl", function($rootScope, PDServe, $scope) {
-    $scope.editForm = function() {
+    $scope.editUserForm = function() {
       PDServe.Update($rootScope.eformData).then(response => {
         $scope.udata = response;
         console.log($scope.udata);
