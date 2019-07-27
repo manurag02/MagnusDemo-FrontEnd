@@ -41,7 +41,16 @@
                         aria-sort="ascending"
                         aria-label="Name: activate to sort column descending"
                       >
-                        User Code
+                        <a
+                          href=""
+                          ng-click="orderByField='userCode'; reverseSort = !reverseSort"
+                        >
+                          User Code
+                          <span ng-show="orderByField == 'userCode'"
+                            ><span ng-show="!reverseSort">^</span
+                            ><span ng-show="reverseSort">v</span></span
+                          >
+                        </a>
                       </th>
                       <th
                         class="sorting"
@@ -49,10 +58,19 @@
                         aria-controls="datatables"
                         rowspan="1"
                         colspan="1"
-                        style="width: 252px;"
+                        style="width: 200px;"
                         aria-label="Position: activate to sort column ascending"
                       >
-                        Full Name
+                        <a
+                          href=""
+                          ng-click="orderByField='fullName'; reverseSort = !reverseSort"
+                        >
+                          Full Name
+                          <span ng-show="orderByField == 'fullName'"
+                            ><span ng-show="!reverseSort">^</span
+                            ><span ng-show="reverseSort">v</span></span
+                          >
+                        </a>
                       </th>
                       <th
                         class="sorting"
@@ -60,10 +78,19 @@
                         aria-controls="datatables"
                         rowspan="1"
                         colspan="1"
-                        style="width: 129px;"
+                        style="width: 200px;"
                         aria-label="Office: activate to sort column ascending"
                       >
-                        Department
+                        <a
+                          href=""
+                          ng-click="orderByField='department'; reverseSort = !reverseSort"
+                        >
+                          Department
+                          <span ng-show="orderByField == 'department'"
+                            ><span ng-show="!reverseSort">^</span
+                            ><span ng-show="reverseSort">v</span></span
+                          >
+                        </a>
                       </th>
                       <th
                         class="sorting"
@@ -74,7 +101,16 @@
                         style="width: 45px;"
                         aria-label="Age: activate to sort column ascending"
                       >
-                        UserID
+                        <a
+                          href=""
+                          ng-click="orderByField='userID'; reverseSort = !reverseSort"
+                        >
+                          User ID
+                          <span ng-show="orderByField == 'userID'"
+                            ><span ng-show="!reverseSort">^</span
+                            ><span ng-show="reverseSort">v</span></span
+                          >
+                        </a>
                       </th>
                       <th
                         class="sorting"
@@ -82,10 +118,19 @@
                         aria-controls="datatables"
                         rowspan="1"
                         colspan="1"
-                        style="width: 110px;"
+                        style="width: 150px;"
                         aria-label="Date: activate to sort column ascending"
                       >
-                        Date
+                        <a
+                          href=""
+                          ng-click="orderByField='date'; reverseSort = !reverseSort"
+                        >
+                          Date
+                          <span ng-show="orderByField == 'date'"
+                            ><span ng-show="!reverseSort">^</span
+                            ><span ng-show="reverseSort">v</span></span
+                          >
+                        </a>
                       </th>
                       <th
                         class="disabled-sorting text-right sorting"
@@ -93,7 +138,7 @@
                         aria-controls="datatables"
                         rowspan="1"
                         colspan="1"
-                        style="width: 201px;"
+                        style="width: 150px;"
                         aria-label="Actions: activate to sort column ascending"
                       >
                         Actions
@@ -104,7 +149,11 @@
                         <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
                       </tfoot> -->
                   <tbody>
-                    <tr role="row" class="odd" ng-repeat="x in udata">
+                    <tr
+                      role="row"
+                      class="odd"
+                      ng-repeat="x in udata | filter: searchKey |orderBy:orderByField:reverseSort"
+                    >
                       <td tabindex="0" class="sorting_1">{{ x.userCode }}</td>
                       <td>{{ x.userFullName }}</td>
                       <td>{{ x.department }}</td>
@@ -143,10 +192,10 @@
                     ></span>
                   </a>
                 </li>
-                <li class="page-item">
+                <li class="page-item active">
                   <a class="page-link" href="#link">1</a>
                 </li>
-                <li class="page-item active">
+                <li class="page-item ">
                   <a class="page-link" href="#link">2</a>
                 </li>
                 <li class="page-item">

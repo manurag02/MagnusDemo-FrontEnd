@@ -28,7 +28,10 @@
     />
     <!-- CSS Files -->
     <link href="./assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.css"
+    />
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -161,6 +164,7 @@
     <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app.js"></script>
@@ -424,6 +428,8 @@
         md.initDashboardPageCharts();
       });
     </script>
+    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.tpls.js"></script>
   </body>
 
   <!-- <style>

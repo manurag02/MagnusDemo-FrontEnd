@@ -1,12 +1,23 @@
 "use strict";
 
 angular
-  .module("myApp.view1", ["ngRoute"])
+  .module("myApp.view1", ["ngRoute", "toastr"])
 
   .config(["$routeProvider", function() {}])
 
-  .controller("View1Ctrl", function($scope, PDServe, $state, $rootScope) {
+  .controller("View1Ctrl", function(
+    $scope,
+    PDServe,
+    $state,
+    $rootScope,
+    toastr
+  ) {
     // console.log(PDServe.GetAll());
+    $scope.search = function() {
+      console.log("$scope.searchKey" + $scope.searchKey);
+    };
+    $scope.orderByField = "department";
+    $scope.reverseSort = false;
 
     $scope.submitForm = function() {
       // check to make sure the form is completely valid
@@ -22,24 +33,32 @@ angular
 
       if ($scope.myForm.$valid) {
         console.log($scope.myForm);
-        console.log(PDServe.Insert($scope.user));
+        PDServe.Insert($scope.user)
+          .then(toastr.success("Record Inserted", "Success!"))
+          .catch(error => toastr.error("Record not inserted", "Error"));
       }
     };
 
     $scope.getAll = function() {
       $scope.udata = [];
       console.log("Got all");
-      PDServe.GetAll().then(response => {
-        $scope.udata = response;
-        console.log($scope.udata);
-      });
+      PDServe.GetAll()
+        .then(response => {
+          $scope.udata = response;
+          console.log($scope.udata);
+          toastr.success("Fetched all users!", "Success!");
+        })
+        .catch(error => toastr.error("Records not fetched", "Error"));
     };
 
     $scope.delete = function(id1, row) {
       $scope.udata.splice(row, 1);
-      PDServe.Remove(id1).then(response => {
-        console.log(response);
-      });
+      PDServe.Remove(id1)
+        .then(response => {
+          console.log(response);
+          toastr.success("User Deleted!", "Success!");
+        })
+        .catch(error => toastr.error("Records not deleted", "Error"));
     };
 
     $scope.update = function(uid) {
@@ -54,12 +73,14 @@ angular
     };
   })
 
-  .controller("editCtrl", function($rootScope, PDServe, $scope) {
+  .controller("editCtrl", function($rootScope, PDServe, $scope, toastr) {
     $scope.editUserForm = function() {
-      PDServe.Update($rootScope.eformData).then(response => {
-        $scope.udata = response;
-        console.log($scope.udata);
-      });
+      PDServe.Update($rootScope.eformData)
+        .then(response => {
+          $scope.udata = response;
+          toastr.success("User record updated!", "Success!");
+        })
+        .catch(error => toastr.error("Record not updated", "Error"));
     };
   })
 
