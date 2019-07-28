@@ -1,15 +1,179 @@
 <div class="content">
   <div class="container-fluid">
+
+    <div class="resave">
+      <button type="click"  class="btn btn-success pull-right">
+        Save
+      </button>
+      <button type="click"  class="btn btn-user pull-right">
+        Refresh
+      </button>
+    </div>
+    <div class="row savebtnmargin"></div>
     <div class="accordion" id="accordionExample">
+
+      <!--Start General Data-->
+        <div class="card">
+            <div class="card-header p-0 card-header-user" id="headingzero">
+              <h2 class="mb-0">
+                <div
+                  class="p-1 pl-3 pr-3"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  <div class="card-title">
+                    <h4 class="card-title">
+                      General Data
+                      <i class="material-icons float-right">keyboard_arrow_down</i>
+                    </h4>
+                  </div>
+                </div>
+              </h2>
+            </div>
+    
+            <div
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              
+            >
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="bmd-form-group-sm">
+                        <label class="bmd-label">PRR Number</label>
+                        <input type="text" class="form-control" />
+                        <button type="click"  class="btn btn-user btn-float pull-right">
+                            <i class="material-icons">
+                                search
+                              </i>
+                          </button>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="bmd-form-group-sm">
+                          
+                        </div>
+                      </div>
+
+                    <div class="col-md-4">
+                      <div class="bmd-form-group-sm">
+                        <label class="bmd-label">Date</label>
+                        <input type="date" min="1000-01-01" class="form-control " />
+                      </div>
+                    </div>
+                    
+                  </div>
+    
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+<!--End General Data-->
+
+<!--Start Approval Line-->
+          <div class="card">
+              <div class="card-header p-0 card-header-user" id="headingapproval">
+                <h2 class="mb-0">
+                  <div
+                    class="p-1 pl-3 pr-3"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    aria-expanded="true"
+                    aria-controls="collapseTwo"
+                  >
+                    <div class="card-title">
+                      <h4 class="card-title">
+                        Approval Line
+                        <i class="material-icons float-right">keyboard_arrow_down</i>
+                      </h4>
+                    </div>
+                  </div>
+                </h2>
+              </div>
+      
+              <div
+                id="collapseTwo"
+                class="collapse show"
+                aria-labelledby="headingapproval"
+                
+              >
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                       
+                            <div class="col-sm-12">
+                              <table style="display: table" id="datatables"
+                                class="table table-striped table-no-bordered table-hover dataTable dtr-inline" cellspacing="0"
+                                width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
+                                <thead>
+                                  <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                      style="width: 80px;" aria-sort="ascending"
+                                      aria-label="Seq: activate to sort column descending">Seq.</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                      style="width: 200px;" aria-label="Approval: activate to sort column ascending">Approval
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                      style="width: 40px;" aria-label="Status: activate to sort column ascending">Status</th>
+            
+                                   
+                                  </tr>
+                                </thead>
+                                <!-- <tfoot>
+                                    <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
+                                  </tfoot> -->
+                                <tbody>
+            
+            
+                                  <tr role="row" class="odd">
+                                    <td tabindex="0" class="sorting_1">1</td>
+                                    <td>ABC</td>
+                                    <td>Approved</td>
+                                    
+            
+                                  
+                                  </tr>
+            
+            
+                                  <tr role="row" class="odd">
+                                      <td tabindex="0" class="sorting_1">2</td>
+                                      <td>XYX</td>
+                                      <td>Not Approved</td>
+                                      
+                                    </tr>
+                                 
+                                </tbody>
+                              </table>
+                            </div>
+                        
+  
+                      
+                      
+                    </div>
+      
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+<!--End Approval Line-->
+
+<!--Start General Condition-->
       <div class="card">
-        <div class="card-header p-0 card-header-user" id="headingOne">
+        <div class="card-header p-0 card-header-user" id="headinggecond">
           <h2 class="mb-0">
             <div
               class="p-1 pl-3 pr-3"
               data-toggle="collapse"
-              data-target="#collapseOne"
+              data-target="#collapseThree"
               aria-expanded="true"
-              aria-controls="collapseOne"
+              aria-controls="collapseThree"
             >
               <div class="card-title">
                 <h4 class="card-title">
@@ -22,88 +186,132 @@
         </div>
 
         <div
-          id="collapseOne"
+          id="collapseThree"
           class="collapse show"
-          aria-labelledby="headingOne"
-          data-parent="#accordionExample"
+          aria-labelledby="headinggecond"
+          
         >
           <div class="card-body">
             <form>
               <div class="row">
                 <div class="col-md-4">
                   <div class="bmd-form-group-sm">
-                    <label class="bmd-label">PR Number</label>
-                    <input type="text" class="form-control" />
+                    <label class="bmd-label">Plant</label>
+                    <select class="bmd-select form-control">
+                        <option value="">Select</option>
+                        <option value="">3000</option>
+                        <option value="">1000</option>
+                        <option value="">4000</option>
+                      </select>
                   </div>
                 </div>
+
                 <div class="col-md-4">
                   <div class="bmd-form-group-sm">
                     <label class="bmd-label">Contractor</label>
-                    <input type="text" class="form-control" />
+                    <select class="bmd-select form-control">
+                        <option value="">Select</option>
+                        <option value="">10098</option>
+                        <option value="">10099</option>
+                        <option value="">10008</option>
+                      </select>
                   </div>
                 </div>
+               
+                <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Originator</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                      <div class="bmd-form-group-sm">
+                        <label class="bmd-label">Total Amount</label>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+
+              </div>
+
+              
+              <div class="row">
+
+                  <div class="col-md-4">
+                      <div class="bmd-form-group-sm">
+                        <label class="">PR No</label>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="bmd-form-group-sm">
+                          <label class="">Delivery Date</label>
+                          <input type="date" min="1000-01-01" class="form-control " />
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                          <div class="bmd-form-group-sm">
+                            <label class="bmd-label">PO Type</label>
+                            <select class="bmd-select form-control">
+                              <option value="">Select</option>
+                              <option value="">Local Vendor</option>
+                              <option value="">Import Vendor</option>
+                             
+                            </select>
+                          </div>
+                        </div>
+
                 <div class="col-md-4">
                   <div class="bmd-form-group-sm">
-                    <label class="bmd-label">PO Type</label>
+                    <label class="bmd-label">Delivery Terms</label>
                     <input type="text" class="form-control" />
                   </div>
                 </div>
+
+               
               </div>
 
               <div class="row">
-                <div class="col-md-4">
-                  <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Amount</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="bmd-form-group-sm">
-                    <label class="">Delivery Date</label>
-                    <input type="date" min="1000-01-01" class="form-control " />
-                  </div>
-                </div>
+
+                  <div class="col-md-4">
+                      <div class="bmd-form-group-sm">
+                        <label class="">WBS Code</label>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+
+
+                  <div class="col-md-4">
+                      <div class="bmd-form-group-sm">
+                        <label class="bmd-label">Payment Term</label>
+                        <input type="text" class="form-control" />
+                      </div>
+                    </div>
+
+
               </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Plant</label>
-                    <select class="bmd-select form-control">
-                      <option value="">Select</option>
-                      <option value="">ABC</option>
-                      <option value="">DEF</option>
-                      <option value="">GHI</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Organisation</label>
-                    <select class="form-control">
-                      <option value="">ABC</option>
-                      <option value="">DEF</option>
-                      <option value="">GHI</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-user pull-right">
-                Save
-              </button>
+              
               <div class="clearfix"></div>
             </form>
           </div>
         </div>
       </div>
+
+      <!--End General Condition-->
+
+      <!--Start Commercial Review-->
       <div class="card">
-        <div class="card-header p-0 card-header-user" id="headingTwo">
+        <div class="card-header p-0 card-header-user" id="headingcommrev">
           <h2 class="mb-0">
             <div
               class="p-1 pl-3 pr-3"
               data-toggle="collapse"
-              data-target="#collapseTwo"
+              data-target="#collapseFour"
               aria-expanded="false"
-              aria-controls="collapseTwo"
+              aria-controls="collapseFour"
             >
               <div class="card-title">
                 <h4 class="card-title">
@@ -115,78 +323,365 @@
           </h2>
         </div>
         <div
-          id="collapseTwo"
+          id="collapseFour"
           class="collapse"
-          aria-labelledby="headingTwo"
-          data-parent="#accordionExample"
+          aria-labelledby="headingcommrev"
+          
         >
           <div class="card-body">
             <form>
               <div class="row">
                 <div class="col-md-4">
                   <div class="bmd-form-group-sm">
-                    <label class="bmd-label">PR Number</label>
-                    <input type="text" class="form-control" />
+                    <label class="bmd-label">Subject</label>
+                    
                   </div>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-8">
                   <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Contractor</label>
                     <input type="text" class="form-control" />
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="bmd-form-group-sm">
-                    <label class="bmd-label">PO Type</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
+            
               </div>
+
+             
               <div class="row">
                 <div class="col-md-4">
                   <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Amount</label>
-                    <input type="text" class="form-control" />
+                    <label class="bmd-label">Purpose of Purchasing</label>
+                   
                   </div>
+                  
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-8">
                   <div class="bmd-form-group-sm">
-                    <label class="">Delivery Date</label>
-                    <input type="date" min="1000-01-01" class="form-control " />
+                    <textarea class="form-control"></textarea>
                   </div>
                 </div>
               </div>
+                
               <div class="row">
                 <div class="col-md-4">
                   <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Plant</label>
-                    <select class="bmd-select form-control">
-                      <option value="">Select</option>
-                      <option value="">ABC</option>
-                      <option value="">DEF</option>
-                      <option value="">GHI</option>
-                    </select>
+                    <label class="bmd-label">Vendor Selection</label>
+                   
                   </div>
+                  
                 </div>
-                <div class="col-md-4">
-                  <div class="bmd-form-group-sm">
-                    <label class="bmd-label">Organisation</label>
-                    <select class="form-control">
-                      <option value="">ABC</option>
-                      <option value="">DEF</option>
-                      <option value="">GHI</option>
-                    </select>
-                  </div>
+
+                <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <textarea class="form-control"></textarea>
+                    </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-user pull-right">
-                Save
-              </button>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm">
+                    <label class="bmd-label">Price and T&C</label>
+                   
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm">
+                    <label class="bmd-label">Conclusion</label>
+                   
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm">
+                    <label class="bmd-label">Analysis & Appr. ven. Price</label>
+                   
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm">
+                    <label class="bmd-label">Conclusion</label>
+                   
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <textarea class="form-control"></textarea>
+                    </div>
+                  
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm">
+                    <label class="bmd-label">Others</label>
+                   
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <textarea class="form-control"></textarea>
+                    </div>
+                  </div>
+              </div>
+
+              
+              </div>
+
+            
+              
               <div class="clearfix"></div>
             </form>
           </div>
         </div>
-      </div>
+
+      <!--End Commercial Review-->
+
+ <!--Start Total Amount Comparison-->
+      <div class="card">
+          <div class="card-header p-0 card-header-user" id="headingamtcomp">
+            <h2 class="mb-0">
+              <div
+                class="p-1 pl-3 pr-3"
+                data-toggle="collapse"
+                data-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+              >
+                <div class="card-title">
+                  <h4 class="card-title">
+                    Total Amount Comaparison
+                    <i class="material-icons float-right">keyboard_arrow_down</i>
+                  </h4>
+                </div>
+              </div>
+            </h2>
+          </div>
+          <div
+            id="collapseFive"
+            class="collapse"
+            aria-labelledby="headingamtcomp"
+            
+          >
+            <div class="card-body">
+              <form>
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <table style="display: table" id="datatables"
+                          class="table table-striped table-no-bordered table-hover dataTable dtr-inline" cellspacing="0"
+                          width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
+                          <thead>
+                            <tr role="row">
+                              <th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                style="width: 80px;" aria-sort="ascending"
+                                aria-label="Bidder: activate to sort column descending">Bidder</th>
+                              <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                style="width: 50px;" aria-label="TBE: activate to sort column ascending">TBE
+                              </th>
+
+                              <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                style="width: 100px;" aria-label="InitialPrice: activate to sort column ascending">Initial Price</th>
+
+                                <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                style="width: 100px;" aria-label="FinalPrice: activate to sort column ascending">Final Price</th>
+
+                                <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                style="width: 100px;" aria-label="NegoRate: activate to sort column ascending">Nego Rate</th>
+
+                                <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                style="width: 200px;" aria-label="Remark: activate to sort column ascending">Remark</th>
+                             
+                            </tr>
+                          </thead>
+                          <!-- <tfoot>
+                              <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
+                            </tfoot> -->
+                          <tbody>
+      
+      
+                            <tr role="row" class="odd">
+                              <td tabindex="0" class="sorting_1">10098</td>
+                              <td>Y</td>
+                              <td>9,748.78</td>
+                              <td>9,748.78</td>
+                              <td>0%</td>
+                              <td>Include 55 Sales tax/td>
+
+                            </tr>
+      
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                 
+                </div>
+                
+                   
+               
+                
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!--End Total Amount Comparison-->
+
+
+ <!--Itemize Price Analysis-->
+        <div class="card">
+            <div class="card-header p-0 card-header-user" id="headingitemprice">
+              <h2 class="mb-0">
+                <div
+                  class="p-1 pl-3 pr-3"
+                  data-toggle="collapse"
+                  data-target="#collapseSix"
+                  aria-expanded="false"
+                  aria-controls="collapseSix"
+                >
+                  <div class="card-title">
+                    <h4 class="card-title">
+                      Itemize Price Analysis
+                      <i class="material-icons float-right">keyboard_arrow_down</i>
+                    </h4>
+                  </div>
+                </div>
+              </h2>
+            </div>
+            <div
+              id="collapseSix"
+              class="collapse"
+              aria-labelledby="headingitemprice"
+              
+            >
+              <div class="card-body">
+                <form>
+                  <div class="row">
+  
+                      <div class="col-sm-12">
+                          <table style="display: table" id="datatables"
+                            class="table table-striped table-no-bordered table-hover dataTable dtr-inline" cellspacing="0"
+                            width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
+                            <thead>
+                              <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 50px;" aria-sort="ascending"
+                                  aria-label="Item: activate to sort column descending">Item</th>
+                                <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 50px;" aria-label="MatCode: activate to sort column ascending">Mat. Code</th>
+                                </th>
+  
+                                <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 150px;" aria-label="ShortText: activate to sort column ascending">Short Text</th>
+  
+                                  <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 100px;" aria-label="Quantity: activate to sort column ascending">Quantity</th>
+  
+                                  <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 100px;" aria-label="Bidder: activate to sort column ascending">Bidder</th>
+
+                                  <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 100px;" aria-label="UnitPrice: activate to sort column ascending">Unit Price</th>
+  
+                                  <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                                  style="width: 100px;" aria-label="PriviousPrice: activate to sort column ascending">Prev. Price</th>
+                               
+                              </tr>
+                            </thead>
+                            <!-- <tfoot>
+                                <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
+                              </tfoot> -->
+                            <tbody>
+        
+        
+                              <tr role="row" class="odd">
+                                <td tabindex="0" class="sorting_1">10</td>
+                                <td>R-1350</td>
+                                <td>Connector Parallel</td>
+                                <td>100 ST</td>
+                                <td>10098</td>
+                                <td>1200 / ST </td>
+                                <td>PO 45000006 <br>
+                                  (Dec-18)  <br>
+                                  (MYR 110/ST)
+                                </td>
+  
+                              </tr>
+
+                              <tr role="row" class="odd">
+                                  <td tabindex="0" class="sorting_1">20</td>
+                                  <td>R-1340</td>
+                                  <td>Connector Parallel New</td>
+                                  <td>30 ST</td>
+                                  <td>10098</td>
+                                  <td>1200 / ST </td>
+                                <td>PO 45000010 <br>
+                                  (Dec-18)  <br>
+                                  (MYR 34/ST)
+                                </td>
+    
+                                </tr>
+        
+                             
+                            </tbody>
+                          </table>
+                        </div>
+                   
+                  </div>
+                  
+                     
+                 
+                  
+                  <button type="submit" class="btn btn-user pull-right">
+                    Save
+                  </button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
     </div>
   </div>
 </div>

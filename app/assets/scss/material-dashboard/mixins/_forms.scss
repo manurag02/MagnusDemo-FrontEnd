@@ -244,6 +244,8 @@
 
   label{
       color: $mdb-input-placeholder-color;
+      position: relative;
+      top: 10px;
   }
 
   .radio label,

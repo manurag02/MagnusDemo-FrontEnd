@@ -12,7 +12,7 @@
     z-index: 2;
     width: 260px;
     background: $white-color;
-    @include shadow-big();
+    // @include shadow-big();
 
     .caret{
       display: inline-block;
@@ -60,6 +60,7 @@
                 padding-bottom: 20px;
                 margin: 20px auto 0;
                 position: relative;
+                border-bottom: solid 1px #0087cc;
                 .photo{
                     width: 34px;
                     height: 34px;
@@ -166,7 +167,7 @@
             & .dropdown-menu a:hover,
             & .dropdown-menu a:focus,
             &.active > [data-toggle="collapse"]{
-                background-color: rgba(200, 200, 200, 0.2);
+                background-color: rgba(0, 0, 0, 0.2);
                 color: $black-color;
                 box-shadow: none;
             }
