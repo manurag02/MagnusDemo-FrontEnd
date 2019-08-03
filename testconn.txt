@@ -1,0 +1,21 @@
+#!/bin/bash
+
+RPATH="$SAPNWRFC_HOME/lib"
+cd $RPATH
+
+#
+# add LC_RPATH
+#
+for filename in *.dylib; do
+    install_name_tool -add_rpath $RPATH $filename
+done
+
+#
+# fix LC_LOAD_DYLIB
+#
+
+# in libisui18n
+install_name_tool -change libicuuc.50.dylib @rpath/libicuuc.50.dylib libicui18n.50.dylib
+install_name_tool -change libicudata.50.dylib @rpath/libicudata.50.dylib libicui18n.50.dylib
+# in libicuuc
+install_name_tool -change libicudata.50.dylib @rpath/libicudata.50.dylib libicuuc.50.dylib

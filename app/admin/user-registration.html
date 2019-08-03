@@ -1,0 +1,163 @@
+<div class="container-fluid">
+  <div class="card mt-2">
+    <div class="card-body">
+      <form
+        ng-controller="View1Ctrl"
+        name="myForm"
+        novalidate
+        ng-submit="submitForm()"
+      >
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label"
+                >User Code *
+                <span
+                  style="color:red"
+                  ng-show="myForm.usercode.$dirty && myForm.usercode.$invalid"
+                >
+                  <span ng-show="myForm.usercode.$error.required"
+                    >Usercode is required</span
+                  >
+                </span>
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                name="usercode"
+                ng-model="usercode"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">User Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="userFullName"
+                ng-model="userFullName"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">Department</label>
+              <input
+                type="text"
+                class="form-control"
+                name="department"
+                ng-model="department"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">Mobile Number</label>
+              <input
+                type="number"
+                class="form-control"
+                name="mobile"
+                ng-model="mobile"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label"
+                >Email ID
+                <span
+                  style="color:red"
+                  ng-show="myForm.email.$dirty && myForm.email.$invalid"
+                >
+                  <span ng-show="myForm.email.$error.required"
+                    >Enter valid email</span
+                  >
+                </span>
+              </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                ng-model="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">User ID</label>
+              <input
+                type="number"
+                class="form-control"
+                name="userID"
+                ng-model="userID"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label"
+                >Password
+                <span
+                  style="color:red"
+                  ng-show="myForm.livePass.$dirty && myForm.livePass.$invalid"
+                >
+                  <span ng-show="myForm.livePass.$error.required"
+                    >Enter password</span
+                  >
+                </span>
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                _vkenabled="true"
+                _originaltype="password"
+                name="livePass"
+                ng-model="livePass"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label"
+                >Confirm Password
+                <span
+                  style="color:red"
+                  ng-show="myForm.repeatPass.$error.compareTo"
+                  >Passwords don't match</span
+                >
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                _vkenabled="true"
+                _originaltype="password"
+                name="repeatPass"
+                ng-model="repeatPass"
+                required
+                compare-to="livePass"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-user pull-right"
+          ng-show="myForm.$valid && myForm.repeatPass.$valid"
+        >
+          Register
+        </button>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,276 @@
+<!-- Navbar -->
+<!-- End Navbar -->
+<div class="content">
+  <div class="container-fluid">
+
+    <!-- Amol Add Selection screen -->
+    <div class="card-title">
+
+    </div>
+
+    <div class="card-header">
+      <form>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">Upload Invoice</label>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="bmd-form-group-sm">
+              <input type="file" class="form-control" />
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="btn report-btn pull-right">
+              Extract
+            </button>
+            <button type="submit" class="btn report-btn pull-right">
+              Refresh
+            </button>
+          </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+      </form>
+    </div>
+
+
+    <!-- End -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-user card-header-icon">
+            <h4 class="card-title">Invoice Data</h4>
+          </div>
+          <div class="card-body">
+            <div class="toolbar">
+              <!--        Here you can write extra buttons/actions for the toolbar              -->
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline"
+                  cellspacing="0" width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
+                  <thead>
+                    <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-sort="ascending"
+                        aria-label="PONO: activate to sort column descending">PO No.</th>
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="POItem: activate to sort column ascending">Item
+                      </th>
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="VendorNo: activate to sort column ascending">Vendor No.</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 150px;" aria-label="Vendor: activate to sort column ascending">Vendor Name</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 40px;" aria-label="POBased: activate to sort column ascending">PO Based</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 80px;" aria-label="InvDate: activate to sort column ascending">Inv. Date</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="RefNo: activate to sort column ascending">Reference No.</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="paymentterms: activate to sort column ascending">Pay Terms
+                      </th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="material: activate to sort column ascending">Material</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 150px;" aria-label="MatDesc: activate to sort column ascending">Description</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="Qty: activate to sort column ascending">Qty</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 40px;" aria-label="OUn: activate to sort column ascending">OUn</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="UnitPrice: activate to sort column ascending">Unit Price</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="amount: activate to sort column ascending">Amount</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 50px;" aria-label="SST: activate to sort column ascending">SST</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="Total: activate to sort column ascending">Total</th>
+
+                      <th class="disabled-sorting text-right sorting" tabindex="0" aria-controls="datatables"
+                        rowspan="1" colspan="1" style="width: 201px;"
+                        aria-label="Actions: activate to sort column ascending">Actions</th>
+                    </tr>
+                  </thead>
+                  <!-- <tfoot>
+                        <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
+                      </tfoot> -->
+                  <tbody>
+
+
+                    <tr role="row" class="odd">
+                      <td tabindex="0" class="sorting_1">450000018</td>
+                      <td>10</td>
+                      <td>100098</td>
+                      <td>ABC Consulting Sdn. Bhd.</td>
+                      <td>Y
+                      <td>
+                      <td>2019/11/28</td>
+                      <td>INV10000001</td>
+                      <td>Immeidiate</td>
+                      <td>ETO-D004</td>
+                      <td>Hydro fuel system</td>
+                      <td>10001</td>
+                      <td>4,500.000</td>
+                      <td>PC</td>
+                      <td>1000</td>
+                      <td>4,500,000.00</td>
+                      <td>ST</td>
+                      <td>4,500,000.00</td>
+
+                      <td class="text-right">
+                        <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
+                            class="material-icons">favorite</i></a>
+                        <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
+                            class="material-icons">dvr</i></a>
+                        <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
+                            class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+
+
+                    <tr role="row" class="odd">
+                      <td tabindex="0" class="sorting_1">450000018</td>
+                      <td>30</td>
+                      <td>100098</td>
+                      <td>ABC Consulting Sdn. Bhd.</td>
+                      <td>Y
+                      <td>
+                      <td>2019/11/28</td>
+                      <td>INV10000001</td>
+                      <td>Immeidiate</td>
+                      <td>ETO-D004</td>
+                      <td>Hydro fuel system</td>
+                      <td>10001</td>
+                      <td>4,500.000</td>
+                      <td>PC</td>
+                      <td>1000</td>
+                      <td>4,500,000.00</td>
+                      <td>ST</td>
+                      <td>4,500,000.00</td>
+
+
+
+                      <td class="text-right">
+                        <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
+                            class="material-icons">favorite</i></a>
+                        <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
+                            class="material-icons">dvr</i></a>
+                        <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
+                            class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#link" aria-label="Previous">
+                    <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#link">1</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#link">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#link">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#link" aria-label="Next">
+                    <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <form class="inline">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm row justify-content-between align-items-center">
+                    <label class="bmd-label">SST Amount</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm row justify-content-between align-items-center">
+                    <label class="bmd-label">Total Amount</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="bmd-form-group-sm row justify-content-between align-items-center">
+                      <label class="bmd-label"><input type="checkbox" class="bmd-form-control"> CheckBox - Item OK</label>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div class="row" class="col-md-12">
+
+
+
+              <div class="col-md-12">
+                <div class="bmd-form-group-sm">
+                 
+
+                  <button type="submit" class="btn btn-user report-btn pull-right">
+                    Proceed
+                  </button>
+
+                  <button type="submit" class="btn btn-user report-btn pull-right">
+                    Refresh
+                  </button>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- end content-->
+      </div>
+      <!--  end card  -->
+    </div>
+    <!-- end col-md-12 -->
+  </div>
+</div>
+</div>
+<!-- <footer class="footer">
+    <div class="container-fluid">
+      <nav class="float-left">
+        <ul>
+          
+        </ul>
+      </nav>
+    </div>
+  </footer> -->
+</div>

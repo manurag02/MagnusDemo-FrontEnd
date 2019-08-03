@@ -1,0 +1,107 @@
+<div class="container-fluid">
+  <div class="card mt-2">
+    <div class="card-body">
+      <form name="editForm" novalidate ng-submit="editUserForm()">
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label"
+                >User Code *
+                <span style="color:red" ng-show="editForm.usercode.$invalid">
+                  <span ng-show="editForm.usercode.$error.required"
+                    >Usercode is required</span
+                  >
+                </span>
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="userCode"
+                ng-model="eformData.userCode"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">User Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="userFullName"
+                ng-model="eformData.userFullName"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">Department</label>
+              <input
+                type="text"
+                class="form-control"
+                name="department"
+                ng-model="eformData.department"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">Mobile Number</label>
+              <input
+                type="number"
+                class="form-control"
+                name="mobile"
+                ng-model="eformData.mobile"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label"
+                >Email ID
+                <span
+                  style="color:red"
+                  ng-show="editForm.email.$dirty && editForm.email.$invalid"
+                >
+                  <span ng-show="editForm.email.$error.required"
+                    >Enter valid email</span
+                  >
+                </span>
+              </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                ng-model="eformData.email"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bmd-form-group-sm">
+              <label class="bmd-label">User ID</label>
+              <input
+                type="number"
+                class="form-control"
+                name="userID"
+                ng-model="eformData.userID"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-user pull-right"
+          ng-show="editForm.$valid"
+        >
+          Submit
+        </button>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+</div>

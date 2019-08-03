@@ -1,0 +1,348 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="resave">
+        <div class="bmd-form-group-sm">
+          <button type="click"  class="btn btn-success pull-right">
+              Save
+            </button>
+        </div>
+        <div class="bmd-form-group-sm">
+          <button type="click"  class="btn btn-user pull-right">
+              Refresh
+            </button>
+        </div>
+      </div>
+
+      <div class="row stw justify-content-center">
+        <h6 class="title">Workflow</h6>
+        <div class="stepwizard">
+          <div class="stepwizard-row setup-panel">
+              <div class="stepwizard-step col-xs-3"> 
+                  <a class="btn btn-default new btn-circle">1</a>
+                  <p><small>New</small></p>
+              </div>
+              <div class="stepwizard-step col-xs-3"> 
+                  <a class="btn btn-default qrec btn-circle" disabled="disabled">2</a>
+                  <p><small>Quot-Received</small></p>
+              </div>
+              <div class="stepwizard-step col-xs-3"> 
+                  <a class="btn btn-default cre btn-circle" disabled="disabled">3</a>
+                  <p><small>PRR Created</small></p>
+              </div>
+              <div class="stepwizard-step col-xs-3"> 
+                  <a class="btn btn-default apr btn-circle" disabled="disabled">4</a>
+                  <p><small>PRR Approved</small></p>
+              </div>
+              <div class="stepwizard-step col-xs-3"> 
+                  <a class="btn btn-default awd btn-circle" disabled="disabled">5</a>
+                  <p><small>Vendor Awarded</small></p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion" id="accordionExample">
+         
+
+        <div class="card">
+            <div class="card-header p-0 card-header-user" id="headingOne">
+                <h2 class="mb-0">
+                  <div
+                    class="p-1 pl-3 pr-3"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
+                    <div class="card-title">
+                      <h4 class="card-title">
+                        Header Data
+                        <i class="material-icons float-right">keyboard_arrow_down</i>
+                      </h4>
+                    </div>
+                  </div>
+                </h2>
+              </div>
+  
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            >
+            <!-- data-parent="#accordionExample" -->
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">RFQ No.</label>
+                      <input type="text" class="form-control" />
+                      <button type="click"  class="btn btn-user btn-float pull-right">
+                        <i class="material-icons">
+                          search
+                        </i>
+                      </button>
+
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">RFQ Date</label>
+                      <input type="date" min="1000-01-01" class="form-control " />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Comp. Code</label>
+                      <select class="bmd-select form-control">
+                        <option value="">Select</option>
+                        <option value="">1001</option>
+                        <option value="">2001</option>
+                        <option value="">3001</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Pur Grp.</label>
+                      <select class="bmd-select form-control">
+                        <option value="">Select</option>
+                        <option value="">P1</option>
+                        <option value="">P2</option>
+                        <option value="">P3</option>
+                      </select>
+                    </div>
+                    
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Pur Org.</label>
+                      <select class="bmd-select form-control">
+                        <option value="">Select</option>
+                        <option value="">PO1</option>
+                        <option value="">PO2</option>
+                        <option value="">PO3</option>
+                      </select>
+                    </div>
+                    
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Vendor No.</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <label class="">Vendor</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="bmd-form-group-sm">
+                      <label class="">Address</label>
+                      <textarea name="" class="form-control" placeholder="Press enter for multiple lines"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="">Collective No.</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+
+                </div>
+
+                
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Quot. Deadln</label>
+                      <input type="date" min="1000-01-01" class="form-control " />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Start Date</label>
+                      <input type="date" min="1000-01-01" class="form-control " />
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">End Date</label>
+                      <input type="date" min="1000-01-01" class="form-control " />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Contact Person</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Contact No</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+                </div>
+
+            
+                
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header p-0 card-header-user" id="headingTwo">
+            <h2 class="mb-0">
+              <div
+                class="p-1 pl-3 pr-3"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <div class="card-title">
+                  <h4 class="card-title">
+                    Item Details
+                    <i class="material-icons float-right">keyboard_arrow_down</i>
+                  </h4>
+                </div>
+              </div>
+            </h2>
+          </div>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            >
+            <!-- data-parent="#accordionExample" -->
+          <div class="card-body">
+            <div class="toolbar">
+              <!--        Here you can write extra buttons/actions for the toolbar              -->
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <table id="datatables"
+                  class="table table-striped table-no-bordered table-hover dataTable dtr-inline" cellspacing="0"
+                  width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
+                  <thead>
+                    <tr role="row">
+
+                      <th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 50px;" aria-sort="ascending"
+                        aria-label="Item: activate to sort column descending">Item</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                      nowrap aria-label="ItmCat: activate to sort column ascending">Itm Cat
+                      </th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 150px;" aria-label="Material: activate to sort column ascending">Material</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 300px;" aria-label="Description: activate to sort column ascending">Description</th>
+
+                      <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="RFQQty: activate to sort column ascending">RFQ Qty</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 50px;" aria-label="OUn: activate to sort column ascending">OUn</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        nowrap aria-label="DelDate: activate to sort column ascending">Deliv.Date</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        nowrap aria-label="MatGrp: activate to sort column ascending">Mat Grp</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 70px;" aria-label="Plant: activate to sort column ascending">Plant</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="StrLoc: activate to sort column ascending">Store Loc</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 50px;" aria-label="DelFlag: activate to sort column ascending">DelFlag</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
+                        style="width: 100px;" aria-label="LineRemark: activate to sort column ascending">Remark</th>
+
+
+                      <th class="disabled-sorting text-right sorting" tabindex="0" aria-controls="datatables"
+                        rowspan="1" colspan="1" style="width: 201px;"
+                        aria-label="Actions: activate to sort column ascending">Actions</th>
+                    </tr>
+                  </thead>
+                  <!-- <tfoot>
+                      <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
+                    </tfoot> -->
+                  <tbody>
+
+
+                    <tr role="row" class="odd">
+                      <td tabindex="0" class="sorting_1">10</td>
+                      <td> </td>
+                      <td>R-1350</td>
+                      <td>Connector Parallel</td>
+                      <td>100</td>
+                      <td>ST</td>
+                      <td>2008/11/28</td>
+                      <td>002</td>
+                      <td>3200</td>
+                      <td>PL05</td>
+                      <td></td>
+                      <td>Test</td>
+                      
+                      <td class="text-right">
+                          <a href="#" class="text-warning edit"><i
+                            class="material-icons">border_color</i></a>
+                        <a href="#" class=" text-danger remove"><i
+                            class="material-icons">delete</i></a>
+                      </td>
+                    </tr>
+                    <tr role="row" class="even">
+                      <td tabindex="0" class="sorting_1">20</td>
+                      <td> </td>
+                      <td>R-1340</td>
+                      <td>Connector Parallel New</td>
+                      <td>20</td>
+                      <td>ST</td>
+                      <td>2019/11/28</td>
+                      <td>002</td>
+                      <td>3200</td>
+                      <td>PL05</td>
+                      <td></td>
+                      <td>Test</td>
+                        <td class="text-right">
+                            <a href="#" class="text-warning edit"><i
+                              class="material-icons">border_color</i></a>
+                          <a href="#" class=" text-danger remove"><i
+                              class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
