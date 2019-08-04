@@ -2,12 +2,12 @@
     <div class="container-fluid">
       <div class="resave">
         <div class="bmd-form-group-sm">
-          <button type="click"  class="btn btn-success pull-right">
+          <button type="click"  ng-click="submitForm()" class="btn btn-success pull-right">
               Save
             </button>
         </div>
         <div class="bmd-form-group-sm">
-          <button type="click"  class="btn btn-user pull-right">
+          <button type="click" ng-click="unset()" class="btn btn-user pull-right">
               Refresh
             </button>
         </div>
@@ -74,42 +74,54 @@
               <form>
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="bmd-form-group-sm">
-                      <label class="bmd-label">RFQ No.</label>
-                      <input type="text" class="form-control" />
-                      <button type="click"  class="btn btn-user btn-float pull-right">
+                    <div class="bmd-form-group-sm" ng-show="!search">
+                      <label class="bmd-label" >RFQ No.*</label>
+                      <input type="text" class="form-control" ng-model="RFQNo"/>
+                      <button type="click" ng-click="setSearch()" class="btn btn-user btn-float pull-right">
                         <i class="material-icons">
                           search
                         </i>
                       </button>
 
                     </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="bmd-form-group-sm">
-                      <label class="bmd-label">RFQ Date</label>
-                      <input type="date" min="1000-01-01" class="form-control " />
+                    <div class="bmd-form-group-sm" ng-show="search">
+                      <label class="bmd-label">Click to Select RFQ No.*</label>
+                      <select class="bmd-select form-control" ng-model="RFQNos" ng-options="x.RFQNo for x in all">
+                        <option value="">select RFQ</option>
+                      </select>
+                      <button type="click"  ng-click="setHeader()" class="btn btn-success pull-right">
+                        Get Data
+                      </button>
+                      <button type="click"  ng-click="unsetSearch()" class="btn btn-user btn-float pull-right">
+                        <i class="material-icons">
+                          search
+                        </i>
+                      </button>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
-                      <label class="bmd-label">Comp. Code</label>
-                      <select class="bmd-select form-control">
-                        <option value="">Select</option>
-                        <option value="">1001</option>
-                        <option value="">2001</option>
-                        <option value="">3001</option>
+                      <label class="bmd-label">RFQ Date*</label>
+                      <input type="date" min="1000-01-01" class="form-control" ng-model="RFQDate"/>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="bmd-form-group-sm">
+                      <label class="bmd-label">Comp. Code*</label>
+                      <select class="bmd-select form-control" ng-model="CompCode">
+                        <option value="1001">1001</option>
+                        <option value="2001">2001</option>
+                        <option value="3001">3001</option>
                       </select>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">Pur Grp.</label>
-                      <select class="bmd-select form-control">
-                        <option value="">Select</option>
-                        <option value="">P1</option>
-                        <option value="">P2</option>
-                        <option value="">P3</option>
+                      <select class="bmd-select form-control" ng-model="PGrp">
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
                       </select>
                     </div>
                     
@@ -118,80 +130,86 @@
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">Pur Org.</label>
-                      <select class="bmd-select form-control">
-                        <option value="">Select</option>
-                        <option value="">PO1</option>
-                        <option value="">PO2</option>
-                        <option value="">PO3</option>
+                      <select class="bmd-select form-control" ng-model="PurOrg">
+                        <option value="PO1">PO1</option>
+                        <option value="PO2">PO2</option>
+                        <option value="PO3">PO3</option>
                       </select>
                     </div>
                     
+                  </div>
+
+                  <div class="col-md-4 mt-1">
+                    <div class="bmd-form-group-sm">
+                      <label class="">PRR No.</label>
+                      <input type="text" class="form-control" ng-model="PRRNo"/>
+                    </div>
                   </div>
                 </div>
   
                 <div class="row">
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
-                      <label class="bmd-label">Vendor No.</label>
-                      <input type="text" class="form-control" />
+                      <label class="">Vendor No.*</label>
+                      <select class="bmd-select form-control" ng-model="VendorNo">
+                        <option value="1001">1001</option>
+                        <option value="2001">2001</option>
+                        <option value="3001">3001</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="bmd-form-group-sm">
                       <label class="">Vendor</label>
-                      <input type="text" class="form-control" />
+                      <input type="text" class="form-control" ng-model="VendorName"/>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="bmd-form-group-sm">
                       <label class="">Address</label>
-                      <textarea name="" class="form-control" placeholder="Press enter for multiple lines"></textarea>
+                      <textarea name="" class="form-control" placeholder="Press enter for multiple lines" ng-model="Address"></textarea>
                     </div>
                   </div>
 
-                  <div class="col-md-4">
+                  <div class="col-md-4 mt-3">
                     <div class="bmd-form-group-sm">
                       <label class="">Collective No.</label>
-                      <input type="text" class="form-control" />
+                      <input type="text" class="form-control" ng-model="CollNo" />
                     </div>
                   </div>
-
-
-                </div>
-
-                
+                </div>          
 
                 <div class="row">
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">Quot. Deadln</label>
-                      <input type="date" min="1000-01-01" class="form-control " />
+                      <input type="date" min="1000-01-01" class="form-control "  ng-model="QuotDeadline"/>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">Start Date</label>
-                      <input type="date" min="1000-01-01" class="form-control " />
+                      <input type="date" min="1000-01-01" class="form-control " ng-model="StartDate"/>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">End Date</label>
-                      <input type="date" min="1000-01-01" class="form-control " />
+                      <input type="date" min="1000-01-01" class="form-control " ng-model="EndDate"/>
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">Contact Person</label>
-                      <input type="text" class="form-control" />
+                      <input type="text" class="form-control" ng-model="ContactPer"/>
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <div class="bmd-form-group-sm">
                       <label class="bmd-label">Contact No</label>
-                      <input type="text" class="form-control" />
+                      <input type="text" class="form-control" ng-model="ContactNo"/>
                     </div>
                   </div>
 
@@ -243,7 +261,7 @@
                     <tr role="row">
 
                       <th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
-                        style="width: 50px;" aria-sort="ascending"
+                        style="width: 100px;" aria-sort="ascending"
                         aria-label="Item: activate to sort column descending">Item</th>
 
                       <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1"
@@ -290,7 +308,39 @@
                       <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
                     </tfoot> -->
                   <tbody>
-
+                      <tr role="row" class="odd">
+                          <td tabindex="0" class="sorting_1">
+                            <input type="number" min="1" length="3" class="form-control" ng-model="ItemNo" /></td>
+                          <td><input type="text" class="form-control" ng-model="ItemCat" /> </td>
+                          <td> <select class="bmd-select form-control" ng-model="Material">
+                              <option value="R-1350">R-1350</option>
+                              <option value="R-1360">R-1360</option>
+                              <option value="R-1370">R-1370</option>
+                            </select></td>
+                          <td><input type="text" class="form-control" ng-model="MatDesc" /></td>
+                          <td><input type="number" class="form-control" length="4" min="1" ng-model="RFQQty" /></td>
+                          <td><input type="text" class="form-control"  length="2" ng-model="OUn" /></td>
+                          <td><input type="date" min="1000-01-01" class="form-control " ng-model="DeliveryDate"/></td>
+                          <td><input type="number" class="form-control" length="3" min="1" ng-model="MatGroup" /></td>
+                          <td><select class="bmd-select form-control" ng-model="Plant">
+                              <option value="3100">3100</option>
+                              <option value="3200">3200</option>
+                              <option value="3300">3300</option>
+                            </select></td>
+                          <td><input type="text" class="form-control" ng-model="StorLoc" /></td>
+                          <td><select class="bmd-select form-control" ng-model="DelFlag">
+                              <option value="Y">Y</option>
+                              <option value="N">N</option>
+                            </select></td>
+                          <td><input type="text" class="form-control" ng-model="Remark" /></td>
+                          
+                          <td class="text-right">
+                              <a href="#" class="text-warning edit"><i
+                                class="material-icons" ng-click="submitRFQItem">border_color</i></a>
+                            <a href="#" class=" text-danger remove" ng-show="RFQItem"><i
+                                class="material-icons">delete</i></a>
+                          </td>
+                        </tr>
 
                     <tr role="row" class="odd">
                       <td tabindex="0" class="sorting_1">10</td>
