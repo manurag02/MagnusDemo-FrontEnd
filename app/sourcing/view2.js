@@ -18,7 +18,7 @@ angular
   ) {
     $scope.setSearch = function() {
       $scope.search = true;
-      $rootScope.RFQItem = "true";
+      // $rootScope.RFQItem = "true";
 
       PDServe.GetAll().then(function(response) {
         // if (response.data.code != "undefined")
@@ -59,6 +59,16 @@ angular
           $scope.ContactNo = $rootScope.all[i].ContactNo;
         }
       }
+
+      PDServe.GetSingleItem($scope.RFQNos.RFQNo).then(function(response) {
+        if (response != "No Records Found") {
+          toastr.success("Choose RFQNo from dropdown", "Success!");
+          $rootScope.items = response;
+          console.log($rootScope.items);
+        } else {
+          toastr.error("Items not found", "RFQNo doesn't Exists!");
+        }
+      });
     };
 
     $scope.unset = function() {
@@ -80,9 +90,9 @@ angular
       $scope.ContactNo = "";
     };
 
-    $scope.submitRFQItem = function($rootScope) {
+    $scope.submitRFQItem = function() {
       // check to make sure the form is completely valid
-      console.log($rootScope.RFQItem);
+      console.log($scope.search);
       $scope.item = {
         RFQNo: $scope.RFQNo,
         ItemNo: $scope.ItemNo,
@@ -100,9 +110,9 @@ angular
       };
 
       // if ($scope.myForm.$valid) {
-      if ($scope.RFQItem) {
+      if (!$scope.search) {
         console.log($scope.item);
-        PDServe.Insert($scope, $scope.item).then(function(response) {
+        PDServe.InsertItem($scope.item).then(function(response) {
           console.log(response.data.code);
           if (response.data.code == undefined) {
             toastr.success("Record Inserted", "Success!");
@@ -112,18 +122,12 @@ angular
       } else {
         $rootScope.itemformData = $scope.item;
         console.log($scope.itemformData);
-        PDServe.Update($scope, $rootScope.itemformData).then(function(
-          response
-        ) {
+        PDServe.UpdateItem($rootScope.itemformData).then(function(response) {
           console.log(response.data.code);
           if (response.data.code == undefined) {
             toastr.success("Record Updated", "Success!");
             // $scope.unset();
-          } else if (
-            response.data.code == 11000 ||
-            (response.data.errors != "" || response.data.errors != null)
-          )
-            toastr.error("Record not updated", "RFQNo Exists!");
+          } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not updated", "RFQNo Exists!");
         });
       }
       // .catch(error => toastr.error("Record not inserted", error.errmsg));
@@ -153,29 +157,28 @@ angular
       // if ($scope.myForm.$valid) {
       if (!$scope.search) {
         console.log($scope.user);
-        PDServe.Insert($scope, $scope.user).then(function(response) {
+        PDServe.Insert($scope.user).then(function(response) {
           console.log(response.data.code);
           if (response.data.code == undefined) {
             toastr.success("Record Inserted", "Success!");
-            $scope.RFQItem = true;
+            $scope.submitRFQItem();
             // $scope.unset();
           } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not inserted", "RFQNo Exists!");
         });
       } else {
         $rootScope.eformData = $scope.user;
         console.log($scope.eformData);
-        PDServe.Update($scope, $rootScope.eformData).then(function(response) {
+        PDServe.Update($rootScope.eformData).then(function(response) {
           console.log(response.data.code);
           if (response.data.code == undefined) {
             toastr.success("Record Updated", "Success!");
-            $scope.RFQItem = false;
+            $scope.submitRFQItem();
             // $scope.unset();
           } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not updated", "RFQNo Exists!");
         });
       }
       // .catch(error => toastr.error("Record not inserted", error.errmsg));
       //   // }
-      $scope.submitRFQItem($rootScope);
     };
   })
   .factory("PDServe", function($http) {
@@ -205,56 +208,76 @@ angular
       return promise;
     };
 
+    // get single record from database
+    thisPDService.GetSingleItem = function(id) {
+      var promise = $http({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/rfqItem/view/" + id
+      }).then(function(response) {
+        return response.data;
+      });
+      return promise;
+    };
+
     // post the data from database
-    thisPDService.Insert = function($scope, user) {
+    thisPDService.Insert = function(user) {
       var headerData = user;
-      if ($scope.RFQItem) {
-        var promise = $http({
-          method: "POST",
-          url: "http://localhost:3000/api/v1/rfqItem/create",
-          data: headerData
-        }).then(function(response) {
-          console.log(response);
-          return response;
-        });
-      } else {
-        var promise = $http({
-          method: "POST",
-          url: "http://localhost:3000/api/v1/rfqHeader/create",
-          data: headerData
-        }).then(function(response) {
-          console.log(response);
-          return response;
-        });
-      }
+      var promise = $http({
+        method: "POST",
+        url: "http://localhost:3000/api/v1/rfqHeader/create",
+        data: headerData
+      }).then(function(response) {
+        console.log(response);
+        return response;
+      });
+
+      return promise;
+    };
+
+    thisPDService.InsertItem = function(user) {
+      var headerData = user;
+      var promise = $http({
+        method: "POST",
+        url: "http://localhost:3000/api/v1/rfqItem/create",
+        data: headerData
+      }).then(function(response) {
+        console.log(response);
+        return response;
+      });
 
       return promise;
     };
 
     // put the data from database
-    thisPDService.Update = function($scope, eformData) {
+    thisPDService.Update = function(eformData) {
       let personalDetail = eformData;
       let RFQNo = eformData.RFQNo;
 
-      if ($scope.RFQItem) {
-        var promise = $http({
-          method: "PUT",
-          url: "http://localhost:3000/api/v1/rfqItem/" + RFQNo + "/edit",
-          data: personalDetail
-        }).then(function(response) {
-          return response;
-          // return response.statusText + ' ' + response.status + ' ' + response.data;
-        });
-      } else {
-        var promise = $http({
-          method: "PUT",
-          url: "http://localhost:3000/api/v1/rfqHeader/" + RFQNo + "/edit",
-          data: personalDetail
-        }).then(function(response) {
-          return response;
-          // return response.statusText + ' ' + response.status + ' ' + response.data;
-        });
-      }
+      var promise = $http({
+        method: "PUT",
+        url: "http://localhost:3000/api/v1/rfqHeader/" + RFQNo + "/edit",
+        data: personalDetail
+      }).then(function(response) {
+        return response;
+        // return response.statusText + ' ' + response.status + ' ' + response.data;
+      });
+
+      return promise;
+    };
+
+    // put the data from database
+    thisPDService.UpdateItem = function(eformData) {
+      let personalDetail = eformData;
+      let RFQNo = eformData.RFQNo;
+
+      var promise = $http({
+        method: "PUT",
+        url: "http://localhost:3000/api/v1/rfqItem/" + RFQNo + "/edit",
+        data: personalDetail
+      }).then(function(response) {
+        return response;
+        // return response.statusText + ' ' + response.status + ' ' + response.data;
+      });
 
       return promise;
     };

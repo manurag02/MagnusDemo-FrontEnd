@@ -86,12 +86,9 @@
                     </div>
                     <div class="bmd-form-group-sm" ng-show="search">
                       <label class="bmd-label">Click to Select RFQ No.*</label>
-                      <select class="bmd-select form-control" ng-model="RFQNos" ng-options="x.RFQNo for x in all">
-                        <option value="">select RFQ</option>
+                      <select class="bmd-select form-control" ng-model="RFQNos" ng-click="setHeader()" ng-options="x.RFQNo for x in all">
+                        <option value="" >select RFQ</option>
                       </select>
-                      <button type="click"  ng-click="setHeader()" class="btn btn-success pull-right">
-                        Get Data
-                      </button>
                       <button type="click"  ng-click="unsetSearch()" class="btn btn-user btn-float pull-right">
                         <i class="material-icons">
                           search
