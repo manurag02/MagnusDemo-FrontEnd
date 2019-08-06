@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <div class="resave">
         <div class="bmd-form-group-sm">
-          <button type="click"  ng-click="submitForm()" class="btn btn-success pull-right">
+          <button type="click"  ng-click="submitRFQItem()" class="btn btn-success pull-right">
               Save
             </button>
         </div>
@@ -305,37 +305,40 @@
                       <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
                     </tfoot> -->
                   <tbody>
-                      <tr role="row" class="odd">
+                      <tr role="row" class="odd" ng-repeat="(i,row) in rows track by $index" >
                           <td tabindex="0" class="sorting_1">
-                            <input type="number" min="1" length="3" class="form-control" ng-model="ItemNo" /></td>
-                          <td><input type="text" class="form-control" ng-model="ItemCat" /> </td>
-                          <td> <select class="bmd-select form-control" ng-model="Material">
+                            <input type="number" min="1" length="3" class="form-control" ng-model="rows[i].ItemNo" /></td>
+                          <td><input type="text" class="form-control" ng-model="rows[i].ItemCat" /> </td>
+                          <td> <select class="bmd-select form-control" ng-model="rows[i].Material">
                               <option value="R-1350">R-1350</option>
                               <option value="R-1360">R-1360</option>
                               <option value="R-1370">R-1370</option>
                             </select></td>
-                          <td><input type="text" class="form-control" ng-model="MatDesc" /></td>
-                          <td><input type="number" class="form-control" length="4" min="1" ng-model="RFQQty" /></td>
-                          <td><input type="text" class="form-control"  length="2" ng-model="OUn" /></td>
-                          <td><input type="date" min="1000-01-01" class="form-control " ng-model="DeliveryDate"/></td>
-                          <td><input type="number" class="form-control" length="3" min="1" ng-model="MatGroup" /></td>
-                          <td><select class="bmd-select form-control" ng-model="Plant">
+                          <td><input type="text" class="form-control" ng-model="rows[i].MatDesc" /></td>
+                          <td><input type="number" class="form-control" length="4" min="1" ng-model="rows[i].RFQQty" /></td>
+                          <td><input type="text" class="form-control"  length="2" ng-model="rows[i].OUn" /></td>
+                          <td><input type="date" min="1000-01-01" class="form-control " ng-model="rows[i].DeliveryDate"/></td>
+                          <td><input type="number" class="form-control" length="3" min="1" ng-model="rows[i].MatGroup" /></td>
+                          <td><select class="bmd-select form-control" ng-model="rows[i].Plant">
                               <option value="3100">3100</option>
                               <option value="3200">3200</option>
                               <option value="3300">3300</option>
                             </select></td>
-                          <td><input type="text" class="form-control" ng-model="StorLoc" /></td>
-                          <td><select class="bmd-select form-control" ng-model="DelFlag">
+                          <td><input type="text" class="form-control" ng-model="rows[i].StorLoc" /></td>
+                          <td><select class="bmd-select form-control" ng-model="rows[i].DelFlag">
                               <option value="Y">Y</option>
                               <option value="N">N</option>
                             </select></td>
-                          <td><input type="text" class="form-control" ng-model="Remark" /></td>
+                          <td><input type="text" class="form-control" ng-model="rows[i].Remark" /></td>
                           
                           <td class="text-right">
                               <a href="#" class="text-warning edit"><i
                                 class="material-icons" ng-click="submitRFQItem">border_color</i></a>
-                            <a href="#" class=" text-danger remove" ng-show="RFQItem"><i
+                            <a href="" class=" text-danger remove" ng-click="deleteRows($index)"><i
                                 class="material-icons">delete</i></a>
+                                <a href="" class="text-success remove" ng-click="addRows($index)" ><i
+                                  class="material-icons">add</i></a>
+                                
                           </td>
                         </tr>
 
@@ -356,7 +359,7 @@
                       <td class="text-right">
                           <a href="#" class="text-warning edit"><i
                             class="material-icons">border_color</i></a>
-                        <a href="#" class=" text-danger remove"><i
+                        <a href="#" class=" text-danger add"><i
                             class="material-icons">delete</i></a>
                       </td>
                     </tr>

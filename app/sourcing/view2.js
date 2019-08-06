@@ -11,22 +11,48 @@ angular
 
   .controller("View2Ctrl", function(
     $scope,
-    PDServe,
+    PDServe1,
     $state,
     $rootScope,
     toastr
   ) {
+    $scope.item = {
+      RFQNo: $scope.RFQNo,
+      ItemNo: $scope.ItemNo,
+      ItemCat: $scope.ItemCat,
+      Material: $scope.Material,
+      MatDesc: $scope.MatDesc,
+      RFQQty: $scope.RFQQty,
+      OUn: $scope.OUn,
+      DeliveryDate: $scope.DeliveryDate,
+      MatGroup: $scope.MatGroup,
+      Plant: $scope.Plant,
+      StorLoc: $scope.StorLoc,
+      DelFlag: $scope.DelFlag,
+      Remark: $scope.Remark
+    };
+
+    $scope.rows = [$scope.item];
+
     $scope.setSearch = function() {
       $scope.search = true;
       // $rootScope.RFQItem = "true";
-
-      PDServe.GetAll().then(function(response) {
+      PDServe1.GetAll().then(function(response) {
         // if (response.data.code != "undefined")
         //   toastr.error("RFQNo not found", "RFQNo doesn't Exists!");
         // else {
         toastr.success("Choose RFQNo from dropdown", "Success!");
         $rootScope.all = response;
       });
+    };
+
+    $scope.addRows = function(row) {
+      $scope.rows.push($scope.item);
+      console.log($scope.rows);
+    };
+
+    $scope.deleteRows = function(row) {
+      if ($scope.rows.length > 1) $scope.rows.splice(row, 1);
     };
 
     $scope.unsetSearch = function() {
@@ -60,7 +86,7 @@ angular
         }
       }
 
-      PDServe.GetSingleItem($scope.RFQNos.RFQNo).then(function(response) {
+      PDServe1.GetSingleItem($scope.RFQNos.RFQNo).then(function(response) {
         if (response != "No Records Found") {
           toastr.success("Choose RFQNo from dropdown", "Success!");
           $rootScope.items = response;
@@ -93,43 +119,30 @@ angular
     $scope.submitRFQItem = function() {
       // check to make sure the form is completely valid
       console.log($scope.search);
-      $scope.item = {
-        RFQNo: $scope.RFQNo,
-        ItemNo: $scope.ItemNo,
-        ItemCat: $scope.ItemCat,
-        Material: $scope.Material,
-        MatDesc: $scope.MatDesc,
-        RFQQty: $scope.RFQQty,
-        OUn: $scope.OUn,
-        DeliveryDate: $scope.DeliveryDate,
-        MatGroup: $scope.MatGroup,
-        Plant: $scope.Plant,
-        StorLoc: $scope.StorLoc,
-        DelFlag: $scope.DelFlag,
-        Remark: $scope.Remark
-      };
+
+      console.log($scope.item);
 
       // if ($scope.myForm.$valid) {
-      if (!$scope.search) {
-        console.log($scope.item);
-        PDServe.InsertItem($scope.item).then(function(response) {
-          console.log(response.data.code);
-          if (response.data.code == undefined) {
-            toastr.success("Record Inserted", "Success!");
-            // $scope.unset();
-          } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not inserted", "RFQNo Exists!");
-        });
-      } else {
-        $rootScope.itemformData = $scope.item;
-        console.log($scope.itemformData);
-        PDServe.UpdateItem($rootScope.itemformData).then(function(response) {
-          console.log(response.data.code);
-          if (response.data.code == undefined) {
-            toastr.success("Record Updated", "Success!");
-            // $scope.unset();
-          } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not updated", "RFQNo Exists!");
-        });
-      }
+      // if (!$scope.search) {
+      //   console.log($scope.item);
+      //   PDServe1.InsertItem($scope.item).then(function(response) {
+      //     console.log(response.data.code);
+      //     if (response.data.code == undefined) {
+      //       toastr.success("Record Inserted", "Success!");
+      //       // $scope.unset();
+      //     } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not inserted", "RFQNo Exists!");
+      //   });
+      // } else {
+      //   $rootScope.itemformData = $scope.item;
+      //   console.log($scope.itemformData);
+      //   PDServe1.UpdateItem($rootScope.itemformData).then(function(response) {
+      //     console.log(response.data.code);
+      //     if (response.data.code == undefined) {
+      //       toastr.success("Record Updated", "Success!");
+      //       // $scope.unset();
+      //     } else if (response.data.code == 11000 || (response.data.errors != "" || response.data.errors != null)) toastr.error("Record not updated", "RFQNo Exists!");
+      //   });
+      // }
       // .catch(error => toastr.error("Record not inserted", error.errmsg));
       //   // }
     };
@@ -157,7 +170,7 @@ angular
       // if ($scope.myForm.$valid) {
       if (!$scope.search) {
         console.log($scope.user);
-        PDServe.Insert($scope.user).then(function(response) {
+        PDServe1.Insert($scope.user).then(function(response) {
           console.log(response.data.code);
           if (response.data.code == undefined) {
             toastr.success("Record Inserted", "Success!");
@@ -168,7 +181,7 @@ angular
       } else {
         $rootScope.eformData = $scope.user;
         console.log($scope.eformData);
-        PDServe.Update($rootScope.eformData).then(function(response) {
+        PDServe1.Update($rootScope.eformData).then(function(response) {
           console.log(response.data.code);
           if (response.data.code == undefined) {
             toastr.success("Record Updated", "Success!");
@@ -181,7 +194,7 @@ angular
       //   // }
     };
   })
-  .factory("PDServe", function($http) {
+  .factory("PDServe1", function($http) {
     var thisPDService = {};
     // var port = 3000;
 
